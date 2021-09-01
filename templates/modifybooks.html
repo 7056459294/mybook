@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block titel %} Home {% endblock %}
+
+{% block css %} this is block css {% endblock %}
+
+{% block body %}
+
+
+    {% for message in messages %}
+    <div id="message">
+        <li style="text-align:center; color:lightgreen;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+        </li>
+    </div>
+    {% endfor %}
+    <div class="container my-3">
+    <h3>MyBooks.com</h3>
+    <br>
+    <form action=" " method="post" enctype="multipart/form-data">{% csrf_token %}
+    <h4>Modifiy Book name</h4>
+    <div class="form-group">
+        <label for="name">Book Name</label>
+        <input type="text" class="form-control" id="name" name='mbookname' placeholder="Enter Book Name" required>
+    </div>
+
+    <br>
+    <h4>Modifiy Book Details</h4>
+    
+        <div class="form-group">
+            <label for="name">Book Name</label>
+            <input type="text" class="form-control" id="name" name='bookname' placeholder="Enter Book Name" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Category</label>
+            <input type="text" class="form-control" id="cat" name='bookcat' placeholder="Enter Book Category" required>
+        </div>
+        <div class="form-group">
+            <label for="name">description</label>
+            <input type="text" class="form-control" id="cat" name='des' placeholder="Enter Book Description" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Price</label>
+            <input type="number" class="form-control" id="phone" name='price' placeholder="Enter Book Price" required>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+
+
+        </div>
+        <button type="submit" class="btn btn-success">Modify Book</button>
+    </form>
+
+
+
+
+
+
+
+
+
+    {% endblock %}

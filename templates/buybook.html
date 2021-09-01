@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titel %} Buy Book {% endblock %}
+
+{% block css %} 
+
+h1 {
+  color: blue;
+}
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+<div class="container my-3" >
+    <h1>Your Order Created Sucessfully </h1>
+    <br>
+    <h3>Customer Name :- {{userdata.name}}</h3>
+    <h3>Customer Email :- {{userdata.email}}</h3>
+    <h3>Book Name  :- {{bookdata.book_name}}</h3>
+    <h3>Total Amount  :- {{bookdata.price}}</h3>
+
+</div>
+
+
+
+
+ {% endblock %}

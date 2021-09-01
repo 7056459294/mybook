@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block titel %} Home {% endblock %}
+
+{% block css %} this is block css {% endblock %}
+
+{% block body %}
+
+
+{% for message in messages %}
+<div id="message">
+  <li style="text-align:center; color:lightgreen;" {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+    {{ message }}
+  </li>
+</div>
+{% endfor %}
+<div class="container my-3">
+  <h1>Sold Books Data</h1>
+  <br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Book_name</th>
+        <th scope="col">Cus_name</th>
+        <th scope="col">Cus_email</th>
+        <th scope="col">Price</th>
+
+      </tr>
+    </thead>
+    <tbody>
+     
+      {% for i in bookdata %}
+      
+      
+      
+      <tr>
+
+       
+        
+        <td>{{i.book_name}}</td>
+        <td>{{i.cus_name}}</td>
+        <td>{{i.cus_email}}</td>
+        <td>{{i.price}}</td>
+        
+        
+      
+      </tr>
+     
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+</div>
+
+{% endblock %}
